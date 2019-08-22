@@ -12,6 +12,17 @@ class Image
 
 	end
 
+	def find_ones
+		results = []
+		@image.each_with_index do |row, y|
+			row.each_with_index do |number, x|
+				if number == 1
+					results.push [y,x]
+				end
+			end
+		end
+		return results
+	end
 	
 end
 image = Image.new([
@@ -21,4 +32,4 @@ image = Image.new([
 	[0, 0, 0, 0]
 ])
 
-image.output_image
+p image.find_ones
